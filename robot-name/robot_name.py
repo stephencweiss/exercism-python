@@ -1,14 +1,18 @@
-import random
+import string
+from random import seed, choice, randrange
+
 
 class Robot:
     name = ''
+    usedNames = set()
 
     def __init__(self):
-        self.set_name()
+        self.name = self._generate_name()
 
     def reset(self):
-        self.name = ''
+        seed(self.name)
+        self.name = self._generate_name()
 
-    def set_name(self):
+    def _generate_name(self):
         alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        self.name = "".join([random.choice(alphabet), random.choice(alphabet), str(random.randrange(100,999))])
+        return "".join([choice(string.ascii_uppercase), choice(string.ascii_uppercase), str(randrange(100, 999))])
