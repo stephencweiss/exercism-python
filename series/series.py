@@ -3,4 +3,4 @@ def slices(series, length):
         raise ValueError("Desired length must be greater than 0!")
     if length > len(series):
         raise ValueError("Desired length is longer than series!")
-    return [series[i:i+length] for i in range(0, len(series)) if i <= (len(series) - length)]
+    return [val for val in (series[i:i+length] for i, _ in enumerate(series)) if len(val) == length]
