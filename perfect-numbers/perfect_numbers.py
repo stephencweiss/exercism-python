@@ -11,4 +11,4 @@ def classify(number):
 
 
 def find_aliquot_sum(number):
-    return sum(factor for factor in range(1, int(number/2)+1) if number % factor == 0)
+    return sum(factor for factor in range(1, number // 2 + 1) if number % factor == 0)
